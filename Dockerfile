@@ -5,7 +5,7 @@ RUN wget https://github.com/aquasecurity/trivy/releases/download/v0.52.2/trivy_0
 WORKDIR /go/src/app
 COPY . .
 RUN go get -d -v
-EXPOSE 8080
+EXPOSE 8888
 RUN go build -o main .
 CMD ["./main"]
 
