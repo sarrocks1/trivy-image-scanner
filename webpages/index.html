@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Image Scanner</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://images.stockcake.com/public/e/9/6/e96890e8-32f1-4c56-b32e-4928c831a057_large/colorful-cargo-containers-stockcake.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #666;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        input[type="text"]::placeholder {
+            color: #ddd;
+        }
+        .instructions {
+            font-size: 14px;
+            color: #eee;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .instructions p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Docker Image Scanner</h1>
+        <form action="/imagescan" method="POST">
+            <input type="text" id= "imageName" name="imageName" placeholder="Enter Docker image" required>
+            <button type="submit">Scan Image</button>
+        </form>
+        <div class="instructions">
+            <p>- Please provide the image name with the correct tag.</p>
+            <p>- When you are ready to scan the image, press submit.</p>
+            <p>- Image scanning typically takes some time. Please be patient.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading Animation</title>
+<style>
+  body {
+    background: url('https://images.stockcake.com/public/e/9/6/e96890e8-32f1-4c56-b32e-4928c831a057_large/colorful-cargo-containers-stockcake.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .loading-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* 75% translucent dark gray background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other content */
+  }
+
+  .loading-container {
+    text-align: center;
+    color: #fff; /* Text color */
+    padding: 20px;
+    background-color: #333; /* Container background color */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Nice shadow effect */
+    position: relative;
+  }
+
+  .loading-icon {
+    display: inline-block;
+    width: 80px; /* Size of the loading icon */
+    height: 80px; /* Size of the loading icon */
+    border-radius: 50%;
+    border: 8px solid transparent;
+    border-top-color: #3498db; /* Color of the loading icon */
+    animation: spin 1.5s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .loading-text {
+    font-size: 18px;
+    margin-top: 20px; /* Spacing between icon and text */
+    position: relative;
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="loading-background">
+    <div class="loading-container">
+      <div class="loading-icon"></div>
+      <p class="loading-text">Scanning the Docker image, it may take a while,<br> thank you for waiting...</p>
+    </div>
+  </div>
+</body>
+</html>
