@@ -12,7 +12,7 @@ func main() {
 	tpl, _ = tpl.ParseGlob("webpages/*.html")
 	http.HandleFunc("/", homeHandler)
 	http.HandleFunc("/imagescan", imageScanHandler)
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":8888", nil)
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
