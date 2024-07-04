@@ -1,4 +1,3 @@
-# FROM aquasec/trivy
 FROM golang:1.22.4
 
 RUN wget https://github.com/aquasecurity/trivy/releases/download/v0.52.2/trivy_0.52.2_Linux-64bit.deb && \
