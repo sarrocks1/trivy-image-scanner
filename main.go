@@ -32,4 +32,9 @@ func imageScanHandler(w http.ResponseWriter, r *http.Request) {
 		println("Error:", err)
 	}
 	println(output)
+	printImageScanResult(w, output)
+}
+
+func printImageScanResult(w http.ResponseWriter, output []byte) {
+	tpl.ExecuteTemplate(w, "scaresults.html", output)
 }

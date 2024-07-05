@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JSON Information Display</title>
+<style>
+  body {
+    background: url('https://images.stockcake.com/public/e/9/6/e96890e8-32f1-4c56-b32e-4928c831a057_large/colorful-cargo-containers-stockcake.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Courier New', Courier, monospace; /* Monospace font for JSON */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #fff; /* Text color */
+  }
+
+  .title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ffa07a; /* Light salmon color for title */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Text shadow for title */
+  }
+
+  .container {
+    width: 80%;
+    max-width: 800px;
+    background-color: rgba(0, 0, 0, 0.75); /* Semi-transparent dark background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect */
+    overflow-y: auto; /* Scrollable container */
+    max-height: 70vh; /* Maximum height for scrollability */
+    border: 1px solid #444; /* Light border */
+    position: relative; /* For positioning the copy button */
+  }
+
+  pre {
+    margin: 0;
+    white-space: pre-wrap; /* Wrap long lines */
+    word-wrap: break-word; /* Break long words */
+    color: #98fb98; /* Pale green color for JSON text */
+    line-height: 1.5;
+  }
+
+  .copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #ffa07a; /* Light salmon color for button */
+    border: none;
+    border-radius: 5px;
+    color: #000; /* Dark color for button text */
+    cursor: pointer;
+    font-size: 14px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); /* Text shadow for button */
+    transition: background-color 0.3s;
+  }
+
+  .copy-button:hover {
+    background-color: #ff8c00; /* Darker salmon color on hover */
+  }
+</style>
+</head>
+<body>
+  <h1 class="title">Image Scan Results</h1>
+  <div class="container">
+    <button class="copy-button" onclick="copyJson()">Copy JSON</button>
+    <pre id="json-content" value="{{.}}"></pre>
+  </div>
+
+  <script>
+    function copyJson() {
+      const jsonContent = document.getElementById('json-content').textContent;
+      navigator.clipboard.writeText(jsonContent).then(() => {
+        alert('JSON copied to clipboard!');
+      }, (err) => {
+        alert('Failed to copy JSON: ', err);
+      });
+    }
+  </script>
+</body>
+</html>
