@@ -80,5 +80,12 @@
       <p class="loading-text">Scanning the Docker image, it may take a while,<br> thank you for waiting...</p>
     </div>
   </div>
+  <form action="/scanresult" id="myForm" method="post"></form>
+  <script>
+    // Function to submit the form after 10 seconds
+    setTimeout(function() {
+        document.getElementById("myForm").submit();
+    }, 10000); // 10000 milliseconds = 10 seconds
+  </script>
 </body>
 </html>
