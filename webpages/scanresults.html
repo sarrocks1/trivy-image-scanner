@@ -39,6 +39,7 @@
     max-height: 70vh; /* Maximum height for scrollability */
     border: 1px solid #444; /* Light border */
     position: relative; /* For positioning the copy button */
+    margin-bottom: 20px; /* Add margin to separate from the button */
   }
 
   pre {
@@ -67,14 +68,32 @@
   .copy-button:hover {
     background-color: #ff8c00; /* Darker salmon color on hover */
   }
+
+  .home-button {
+    padding: 10px 20px;
+    background-color: #ffa07a; /* Light salmon color for button */
+    border: none;
+    border-radius: 5px;
+    color: #000; /* Dark color for button text */
+    cursor: pointer;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); /* Text shadow for button */
+    transition: background-color 0.3s;
+  }
+
+  .home-button:hover {
+    background-color: #ff8c00; /* Darker salmon color on hover */
+  }
 </style>
 </head>
 <body>
   <h1 class="title">Image Scan Results</h1>
   <div class="container">
     <button class="copy-button" onclick="copyJson()">Copy JSON</button>
-    <pre id="json-content" value="{{.}}"></pre>
+    <pre id="json-content">{{.}}</pre>
   </div>
+
+  <a href="/" class="home-button">Scan Another Image!</a>
 
   <script>
     function copyJson() {
