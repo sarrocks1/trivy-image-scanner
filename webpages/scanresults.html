@@ -89,7 +89,7 @@
 <body>
   <h1 class="title">Image Scan Results</h1>
   <div class="container">
-    <button class="copy-button" onclick="copyJson()">Copy JSON</button>
+    <button class="copy-button" onclick="copyJson()">Copy Content</button>
     <pre id="json-content">{{.}}</pre>
   </div>
 
@@ -99,9 +99,9 @@
     function copyJson() {
       const jsonContent = document.getElementById('json-content').textContent;
       navigator.clipboard.writeText(jsonContent).then(() => {
-        alert('JSON copied to clipboard!');
+        alert('Content copied to clipboard!');
       }, (err) => {
-        alert('Failed to copy JSON: ', err);
+        alert('Failed to copy Content: ', err);
       });
     }
   </script>

@@ -39,6 +39,13 @@
             background-color: rgba(255, 255, 255, 0.1);
             color: #fff;
         }
+        input[type="radio"] {
+            margin: 0 5px;
+        }
+        label {
+            font-size: 16px;
+            color: #fff;
+        }
         button {
             background-color: #007bff;
             color: white;
@@ -48,6 +55,7 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
+            margin-top: 20px;
         }
         button:hover {
             background-color: #0056b3;
@@ -64,13 +72,25 @@
         .instructions p {
             margin: 10px 0;
         }
+        .format-options {
+            margin: 10px 0;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Docker Image Scanner</h1>
         <form action="/imagescan" method="POST">
-            <input type="text" id= "imageName" name="imageName" placeholder="Enter Docker image" required>
+            <input type="text" id="imageName" name="imageName" placeholder="Enter Docker image" required>
+            <div class="format-options">
+                <label for="json">
+                    <input type="radio" id="json" name="outputFormat" value="json" required> JSON
+                </label>
+                <label for="table">
+                    <input type="radio" id="table" name="outputFormat" value="table"> Table
+                </label>
+            </div>
             <button type="submit">Scan Image</button>
         </form>
         <div class="instructions">
