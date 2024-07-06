@@ -31,8 +31,9 @@ func scanResultHandler(w http.ResponseWriter, r *http.Request) {
 
 func imageScanHandler(w http.ResponseWriter, r *http.Request) {
 	imageName := r.FormValue("imageName")
+	optionSelected := r.FormValue("outputFormat")
 	tpl.ExecuteTemplate(w, "loadpage.html", nil)
-	cmd := exec.Command("trivy", "image", "-f", "json", imageName)
+	cmd := exec.Command("trivy", "image", "-f", optionSelected, imageName)
 	output, err := cmd.Output()
 	if err != nil {
 		fmt.Println("Error:", err)
