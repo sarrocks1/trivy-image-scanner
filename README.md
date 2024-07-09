@@ -14,5 +14,5 @@ To run the image on port `9000` locally:
 ```bash
 docker run -d -p 9000:8888 sarrocksdev/trivy-image-scanner
 ```
-Access the service running at [localhost:9000](127.0.0.1:9000)
+Access the service running at [localhost:9000](http://127.0.0.1:9000)
 
