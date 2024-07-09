@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Docker Image Scanner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -46,7 +47,7 @@
             font-size: 16px;
             color: #fff;
         }
-        button {
+        .buttonload {
             background-color: #007bff;
             color: white;
             padding: 10px 20px;
@@ -56,6 +57,16 @@
             font-size: 16px;
             transition: background-color 0.3s;
             margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .buttonload .fa {
+            margin-right: 8px;
+        }
+        .buttonload.loading {
+            pointer-events: none;
+            opacity: 0.6;
         }
         button:hover {
             background-color: #0056b3;
@@ -81,7 +92,7 @@
 <body>
     <div class="container">
         <h1>Docker Image Scanner</h1>
-        <form action="/imagescan" method="POST">
+        <form action="/imagescan" method="POST" onsubmit="showLoading()">
             <input type="text" id="imageName" name="imageName" placeholder="Enter Docker image" required>
             <div class="format-options">
                 <label for="json">
@@ -91,7 +102,7 @@
                     <input type="radio" id="table" name="outputFormat" value="table"> Table
                 </label>
             </div>
-            <button type="submit">Scan Image</button>
+            <button type="submit" class="buttonload" id="submitBtn">Scan Image</button>
         </form>
         <div class="instructions">
             <p>- Please provide the image name with the correct tag.</p>
@@ -99,5 +110,13 @@
             <p>- Image scanning typically takes some time. Please be patient.</p>
         </div>
     </div>
+
+    <script>
+        function showLoading() {
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.innerHTML = '<i class="fa fa-refresh fa-spin"></i> Loading';
+            submitBtn.classList.add('loading');
+        }
+    </script>
 </body>
 </html>
