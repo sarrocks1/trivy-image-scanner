@@ -1,4 +1,4 @@
-Image-Scanner is a web interface implementation that makes use of [aquasec/trivy](https://github.com/aquasecurity/trivy) tool to scan image for vulnerabilities and 
+Trivy-Image-Scanner is a web interface implementation that makes use of [aquasec/trivy](https://github.com/aquasecurity/trivy) tool to scan image for vulnerabilities and 
 display the scan result in a `JSON` or `Table` format, as specified.
 
 # Pulling the image
